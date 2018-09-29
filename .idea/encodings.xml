@@ -5,5 +5,6 @@
     <file url="file://$PROJECT_DIR$/laonog-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/laonog-config" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/laonog-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/laonog-gateway" charset="UTF-8" />
   </component>
 </project>

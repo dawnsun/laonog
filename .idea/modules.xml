@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/laonog-common/laonog-common.iml" filepath="$PROJECT_DIR$/laonog-common/laonog-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/laonog-config/laonog-config.iml" filepath="$PROJECT_DIR$/laonog-config/laonog-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/laonog-eureka/laonog-eureka.iml" filepath="$PROJECT_DIR$/laonog-eureka/laonog-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/laonog-gateway/laonog-gateway.iml" filepath="$PROJECT_DIR$/laonog-gateway/laonog-gateway.iml" />
     </modules>
   </component>
 </project>

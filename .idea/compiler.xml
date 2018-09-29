@@ -9,6 +9,7 @@
         <module name="laonog-common" />
         <module name="laonog-config" />
         <module name="laonog-eureka" />
+        <module name="laonog-gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -16,6 +17,7 @@
       <module name="laonog-common" target="1.8" />
       <module name="laonog-config" target="1.8" />
       <module name="laonog-eureka" target="1.8" />
+      <module name="laonog-gateway" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
