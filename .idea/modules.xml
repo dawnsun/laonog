@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/laonog.iml" filepath="$PROJECT_DIR$/laonog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/laonog-common/laonog-common.iml" filepath="$PROJECT_DIR$/laonog-common/laonog-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/laonog-config/laonog-config.iml" filepath="$PROJECT_DIR$/laonog-config/laonog-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/laonog-eureka/laonog-eureka.iml" filepath="$PROJECT_DIR$/laonog-eureka/laonog-eureka.iml" />
+    </modules>
+  </component>
+</project>
