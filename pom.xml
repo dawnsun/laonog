@@ -31,9 +31,10 @@
         <commons-io.version>2.6</commons-io.version>
         <commons-io.version>2.6</commons-io.version>
         <jasypt.version>2.1.0</jasypt.version>
-        <mybatis-plus.version>3.0.3</mybatis-plus.version>
+        <mybatis-plus.version>3.0.4</mybatis-plus.version>
         <lombok.version>1.18.2</lombok.version>
         <ttl.version>2.2.0</ttl.version>
+        <mybatis-plus.version>3.0.4</mybatis-plus.version>
     </properties>
 
 
