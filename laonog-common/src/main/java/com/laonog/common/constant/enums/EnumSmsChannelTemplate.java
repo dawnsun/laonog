@@ -14,7 +14,7 @@ public enum EnumSmsChannelTemplate {
     /**
      * 服务异常提醒
      */
-    SERVICE_STATUS_CHANGE("serviceStatusChange", "Pig4Cloud");
+    SERVICE_STATUS_CHANGE("serviceStatusChange", "Laonog4Cloud");
 
 
     /**

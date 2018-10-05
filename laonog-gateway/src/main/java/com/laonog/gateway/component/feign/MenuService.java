@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.Set;
 
 
-@FeignClient(name = "pig-upms-service", fallback = MenuServiceFallbackImpl.class)
+@FeignClient(name = "laonog-admin-service", fallback = MenuServiceFallbackImpl.class)
 public interface MenuService {
     /**
      * 通过角色名查询菜单

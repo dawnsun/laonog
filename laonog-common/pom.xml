@@ -86,11 +86,11 @@
 			<version>${ttl.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus -->
-		<dependency>
+		<!--<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus</artifactId>
 			<version>${mybatis-plus.version}</version>
-		</dependency>
+		</dependency>-->
 
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>

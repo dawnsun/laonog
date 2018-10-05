@@ -19,7 +19,7 @@ import java.io.PrintWriter;
 
 /**
  * 授权拒绝处理器，覆盖默认的OAuth2AccessDeniedHandler
- * 包装失败信息到PigDeniedException
+ * 包装失败信息到LaonogDeniedException
  */
 @Slf4j
 @Component

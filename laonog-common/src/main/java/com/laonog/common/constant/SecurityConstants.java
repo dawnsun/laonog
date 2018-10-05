@@ -5,7 +5,7 @@ public interface SecurityConstants {
     /**
      * 前缀
      */
-    String PIG_PREFIX = "laonog_";
+    String LAONOG_PREFIX = "laonog_";
     /**
      * 用户信息头
      */
@@ -18,7 +18,7 @@ public interface SecurityConstants {
     /**
      * 项目的license
      */
-    String PIG_LICENSE = "made by pig";
+    String LAONOG_LICENSE = "made by laonog";
     /**
      * 基础角色
      */

@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * 钉钉消息模板
  * msgtype : text
- * text : {"content":"服务: pig-upms-service 状态：UP"}
+ * text : {"content":"服务: laonog-upms-service 状态：UP"}
  */
 @Data
 @ToString
@@ -34,7 +34,7 @@ public class DingTalkMsgTemplate implements Serializable {
 
     public static class TextBean {
         /**
-         * content : 服务: pig-upms-service 状态：UP
+         * content : 服务: laonog-upms-service 状态：UP
          */
 
         private String content;

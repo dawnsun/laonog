@@ -1,6 +1,5 @@
 package com.laonog.gateway.component.service.impl;
 
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.laonog.common.vo.MenuVO;
 import com.laonog.gateway.component.feign.MenuService;
 import com.laonog.gateway.component.service.PermissionService;
@@ -8,6 +7,7 @@ import com.xiaoleilu.hutool.collection.CollUtil;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
 import com.xiaoleilu.hutool.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

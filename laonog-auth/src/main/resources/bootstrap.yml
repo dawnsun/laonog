@@ -1,27 +1,19 @@
-server:
-  port: 8082
-
 spring:
   application:
-    name: laonog-config-server
+    name: laonog-auth
   profiles:
     active: dev
   cloud:
     config:
-      server:
-        git:
-          uri: https://github.com/dawnsun/laonog-config.git
-          skipSslValidation: true
-          default-label: master   #解决监控down
-
+      fail-fast: true
+      discovery:
+        service-id: laonog-config-server
+        enabled: true
+      profile: ${spring.profiles.active}
+      label: master
 ---
 spring:
   profiles: dev
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: laonog
-    password: laonogadmin
 eureka:
   instance:
     prefer-ip-address: true
@@ -31,3 +23,13 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8081/eureka
     registry-fetch-interval-seconds: 10
+
+---
+spring:
+  profiles: prd
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:1025/eureka
