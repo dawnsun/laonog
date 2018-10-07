@@ -1,6 +1,5 @@
 package com.laonog.common.util;
 
-
 import com.laonog.common.constant.CommonConstant;
 import com.laonog.common.util.exception.CheckedException;
 import lombok.extern.slf4j.Slf4j;
@@ -10,8 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * @author lengleng
- * @date 2018/5/13
+ *
  * 认证授权相关工具类
  */
 @Slf4j

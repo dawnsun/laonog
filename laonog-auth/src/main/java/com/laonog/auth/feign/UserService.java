@@ -2,7 +2,7 @@ package com.laonog.auth.feign;
 
 
 import com.laonog.auth.feign.fallback.UserServiceFallbackImpl;
-import com.laonog.common.vo.UserVO;
+import com.laonog.common.vo.SysUserVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +17,7 @@ public interface UserService {
      * @return UserVo
      */
     @GetMapping("/user/findUserByUsername/{username}")
-    UserVO findUserByUsername(@PathVariable("username") String username);
+    SysUserVO findUserByUsername(@PathVariable("username") String username);
 
     /**
      * 通过手机号查询用户、角色信息
@@ -26,7 +26,7 @@ public interface UserService {
      * @return UserVo
      */
     @GetMapping("/user/findUserByMobile/{mobile}")
-    UserVO findUserByMobile(@PathVariable("mobile") String mobile);
+    SysUserVO findUserByMobile(@PathVariable("mobile") String mobile);
 
     /**
      * 根据OpenId查询用户信息
@@ -34,5 +34,5 @@ public interface UserService {
      * @return UserVo
      */
     @GetMapping("/user/findUserByOpenId/{openId}")
-    UserVO findUserByOpenId(@PathVariable("openId") String openId);
+    SysUserVO findUserByOpenId(@PathVariable("openId") String openId);
 }

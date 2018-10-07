@@ -3,7 +3,7 @@ package com.laonog.auth.util;
 import com.laonog.common.constant.CommonConstant;
 import com.laonog.common.constant.SecurityConstants;
 import com.laonog.common.vo.SysRole;
-import com.laonog.common.vo.UserVO;
+import com.laonog.common.vo.SysUserVO;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,7 +22,7 @@ public class UserDetailsImpl implements UserDetails {
     private String status;
     private List<SysRole> roleList;
 
-    public UserDetailsImpl(UserVO userVo) {
+    public UserDetailsImpl(SysUserVO userVo) {
         this.userId = userVo.getUserId();
         this.username = userVo.getUsername();
         this.password = userVo.getPassword();

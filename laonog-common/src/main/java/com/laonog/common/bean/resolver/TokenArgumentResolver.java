@@ -3,7 +3,7 @@ package com.laonog.common.bean.resolver;
 
 import com.laonog.common.constant.SecurityConstants;
 import com.laonog.common.vo.SysRole;
-import com.laonog.common.vo.UserVO;
+import com.laonog.common.vo.SysUserVO;
 import com.xiaoleilu.hutool.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
@@ -33,7 +33,7 @@ public class TokenArgumentResolver implements HandlerMethodArgumentResolver {
      */
     @Override
     public boolean supportsParameter(MethodParameter methodParameter) {
-        return methodParameter.getParameterType().equals(UserVO.class);
+        return methodParameter.getParameterType().equals(SysUserVO.class);
     }
 
     /**
@@ -58,7 +58,7 @@ public class TokenArgumentResolver implements HandlerMethodArgumentResolver {
         } else {
             log.info("resolveArgument username :{} roles:{}", username, roles);
         }
-        UserVO userVO = new UserVO();
+        SysUserVO userVO = new SysUserVO();
         userVO.setUsername(username);
         List<SysRole> sysRoleList = new ArrayList<>();
         Arrays.stream(roles.split(",")).forEach(role -> {

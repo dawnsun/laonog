@@ -1,7 +1,7 @@
 package com.laonog.auth.feign.fallback;
 
 import com.laonog.auth.feign.UserService;
-import com.laonog.common.vo.UserVO;
+import com.laonog.common.vo.SysUserVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ public class UserServiceFallbackImpl implements UserService {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-    public UserVO findUserByUsername(String username) {
+    public SysUserVO findUserByUsername(String username) {
         logger.error("调用{}异常:{}", "findUserByUsername", username);
         return null;
     }
@@ -27,7 +27,7 @@ public class UserServiceFallbackImpl implements UserService {
      * @return UserVo
      */
     @Override
-    public UserVO findUserByMobile(String mobile) {
+    public SysUserVO findUserByMobile(String mobile) {
         logger.error("调用{}异常:{}", "通过手机号查询用户", mobile);
         return null;
     }
@@ -39,7 +39,7 @@ public class UserServiceFallbackImpl implements UserService {
      * @return UserVo
      */
     @Override
-    public UserVO findUserByOpenId(String openId) {
+    public SysUserVO findUserByOpenId(String openId) {
         logger.error("调用{}异常:{}", "通过OpenId查询用户", openId);
         return null;
     }

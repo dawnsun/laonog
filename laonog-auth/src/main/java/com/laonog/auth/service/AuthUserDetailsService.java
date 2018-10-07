@@ -3,7 +3,7 @@ package com.laonog.auth.service;
 
 import com.laonog.auth.feign.UserService;
 import com.laonog.auth.util.UserDetailsImpl;
-import com.laonog.common.vo.UserVO;
+import com.laonog.common.vo.SysUserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,7 +17,7 @@ public class AuthUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetailsImpl loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserVO userVo = userService.findUserByUsername(username);
+        SysUserVO userVo = userService.findUserByUsername(username);
         return new UserDetailsImpl(userVo);
     }
 }

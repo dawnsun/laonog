@@ -10,7 +10,7 @@ import java.util.List;
  * 用户vo
  */
 @Data
-public class UserVO implements Serializable {
+public class SysUserVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
