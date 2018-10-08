@@ -1,6 +1,7 @@
 package com.laonog.admin.common.listener;
 
 
+import com.laonog.admin.service.SysLogService;
 import com.laonog.common.constant.MqQueueConstant;
 import com.laonog.common.entity.SysLog;
 import com.laonog.common.vo.LogVO;
@@ -27,7 +28,7 @@ public class LogReceiveListener {
         SysLog sysLog = logVo.getSysLog();
         MDC.put(KEY_USER, logVo.getUsername());
         sysLog.setCreateBy(logVo.getUsername());
-        sysLogService.insert(sysLog);
+        sysLogService.insertSysLog(sysLog);
         MDC.remove(KEY_USER);
     }
 }

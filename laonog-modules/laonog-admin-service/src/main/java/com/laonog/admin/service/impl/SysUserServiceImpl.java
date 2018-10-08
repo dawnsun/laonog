@@ -1,8 +1,18 @@
 package com.laonog.admin.service.impl;
 
 
+import com.laonog.admin.converter.SysUserConverter;
 import com.laonog.admin.mapper.SysUserMapper;
+import com.laonog.admin.model.dto.UserDTO;
+import com.laonog.admin.model.dto.UserInfo;
+import com.laonog.admin.model.entity.SysUser;
+import com.laonog.admin.model.query.SysUserQuery;
 import com.laonog.admin.service.SysUserService;
+import com.laonog.common.enums.ErrorCodeEnum;
+import com.laonog.common.enums.SuccessCodeEnum;
+import com.laonog.common.response.TableResultResponse;
+import com.laonog.common.util.R;
+import com.laonog.common.vo.SysUserVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -32,8 +42,8 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public Boolean insertSysUser(SysUserVO sysUserVO){
         try{
-            SysUserDO sysUserDO = SysUserConverter.convertVO2DO(sysUserVO);
-            Integer id = sysUserDAO.insertSysUser(sysUserDO);
+            SysUser sysUser = SysUserConverter.convertVO2DO(sysUserVO);
+            Long id = sysUserDAO.insertSysUser(sysUser);
             if(id>0){
                 return true;
             }else{
@@ -45,81 +55,54 @@ public class SysUserServiceImpl implements SysUserService {
         }
     }
 
-    /**
-     * 删除
-     * @param sysUserVO
-     * @return
-     */
     @Override
-    public Boolean deleteSysUser(SysUserVO sysUserVO){
-        try{
-            SysUserDO sysUserDO = SysUserConverter.convertVO2DO(sysUserVO);
-            Integer id = sysUserDAO.deleteSysUser(sysUserDO);
-            if(id>0){
-                return true;
-            }else{
-                return false;
-            }
-        } catch (Exception e) {
-            logger.error("SysUserService deleteSysUser " + e);
-            return false;
-        }
+    public SysUserVO findUserByUsername(String username) {
+        return null;
     }
 
-    /**
-     * 修改
-     * @param sysUserVO
-     * @return
-     */
     @Override
-    public Boolean updateSysUser(SysUserVO sysUserVO){
-        try{
-            SysUserDO sysUserDO = SysUserConverter.convertVO2DO(sysUserVO);
-            Integer id = sysUserDAO.updateSysUser(sysUserDO);
-            if(id>0){
-                    sysUserVO = SysUserConverter.convertDO2VO(sysUserDO);
-                return true;
-            }else{
-                    sysUserVO = null;
-                return false;
-            }
-        } catch (Exception e) {
-            logger.error("SysUserService updateSysUser " + e);
-                sysUserVO = null;
-            return false;
-        }
+    public UserInfo findUserInfo(SysUserVO userVo) {
+        return null;
     }
 
-    /**
-     * 查询单个
-     * @param sysUserQuery
-     * @return
-     */
     @Override
-    public SysUserVO getSysUser(SysUserQuery sysUserQuery){
-        try{
-            SysUserDO sysUserDO = sysUserDAO.getSysUser(sysUserQuery);
-            return SysUserConverter.convertDO2VO(sysUserDO);
-        } catch (Exception e) {
-            logger.error("SysUserService getSysUser " + e);
-            return null;
-        }
+    public void saveImageCode(String randomStr, String imageCode) {
+
     }
 
-    /**
-     * 查询列表
-     * @param sysUserQuery
-     * @return
-     */
     @Override
-    public List<SysUserVO> getSysUserList(SysUserQuery sysUserQuery){
-        try{
-            List<SysUserDO> sysUserDOList = sysUserDAO.getSysUserList(sysUserQuery);
-            return SysUserConverter.convertDOs2VOs(sysUserDOList);
-        } catch (Exception e) {
-            logger.error("SysUserService getSysUserList " + e);
-            return null;
-        }
+    public Boolean deleteUserById(SysUser sysUser) {
+        return null;
+    }
+
+    @Override
+    public R<Boolean> updateUserInfo(UserDTO userDto, String username) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateUser(UserDTO userDto, String username) {
+        return null;
+    }
+
+    @Override
+    public SysUserVO findUserByMobile(String mobile) {
+        return null;
+    }
+
+    @Override
+    public R<Boolean> sendSmsCode(String mobile) {
+        return null;
+    }
+
+    @Override
+    public SysUserVO findUserByOpenId(String openId) {
+        return null;
+    }
+
+    @Override
+    public SysUserVO selectUserVoById(Integer id) {
+        return null;
     }
 
     /**
@@ -132,8 +115,8 @@ public class SysUserServiceImpl implements SysUserService {
         try{
             List<SysUserVO> sysUserVOList = new ArrayList<>();
             Long count = sysUserDAO.getSysUserCount(sysUserQuery);
-            List<SysUserDO> sysUserDOList = sysUserDAO.getSysUserPage(sysUserQuery);
-            sysUserVOList = SysUserConverter.convertDOs2VOs(sysUserDOList);
+            List<SysUser> sysUserList = sysUserDAO.getSysUserPage(sysUserQuery);
+            sysUserVOList = SysUserConverter.convertDOs2VOs(sysUserList);
             return new TableResultResponse<>(SuccessCodeEnum.QUERY_PAGE_SUCCESS.getSuccessMessage(),sysUserQuery.getPageNo(), sysUserQuery.getPageSize(), count, sysUserVOList);
         } catch (Exception e) {
             logger.error("SysUserService getSysUserPage " + e);

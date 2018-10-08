@@ -1,8 +1,12 @@
 package com.laonog.admin.service;
 
 
+import com.laonog.admin.model.dto.UserDTO;
+import com.laonog.admin.model.dto.UserInfo;
+import com.laonog.admin.model.entity.SysUser;
 import com.laonog.admin.model.query.SysUserQuery;
 import com.laonog.common.response.TableResultResponse;
+import com.laonog.common.util.R;
 import com.laonog.common.vo.SysUserVO;
 
 import java.util.List;
@@ -24,35 +28,80 @@ public interface SysUserService {
     Boolean insertSysUser(SysUserVO sysUserVO);
 
     /**
-     * 删除
-     * @param sysUserVO
-     * @return
+     * 根据用户名查询用户角色信息
+     *
+     * @param username 用户名
+     * @return userVo
      */
-    Boolean deleteSysUser(SysUserVO sysUserVO);
+    SysUserVO findUserByUsername(String username);
 
     /**
-     * 修改
-     * @param sysUserVO
-     * @return
+     * 查询用户信息
+     *
+     * @param userVo 角色名
+     * @return userInfo
      */
-    Boolean updateSysUser(SysUserVO sysUserVO);
+    UserInfo findUserInfo(SysUserVO userVo);
 
     /**
-     * 查询单个
-     * @param sysUserQuery
-     * @return
-     */
-    SysUserVO getSysUser(SysUserQuery sysUserQuery);
+     * 保存验证码
+     *  @param randomStr 随机串
+     * @param imageCode 验证码*/
+    void saveImageCode(String randomStr, String imageCode);
 
     /**
-     * 查询列表
-     * @param sysUserQuery
-     * @return
+     * 删除用户
+     * @param sysUser 用户
+     * @return boolean
      */
-    public List<SysUserVO> getSysUserList(SysUserQuery sysUserQuery);
+    Boolean deleteUserById(SysUser sysUser);
 
     /**
-     * 查询分页
+     * 更新当前用户基本信息
+     * @param userDto 用户信息
+     * @param username 用户名
+     * @return Boolean
+     */
+    R<Boolean> updateUserInfo(UserDTO userDto, String username);
+
+    /**
+     * 更新指定用户信息
+     * @param userDto 用户信息
+     * @param username 用户信息
+     * @return
+     */
+    Boolean updateUser(UserDTO userDto, String username);
+
+    /**
+     * 通过手机号查询用户信息
+     * @param mobile 手机号
+     * @return 用户信息
+     */
+    SysUserVO findUserByMobile(String mobile);
+
+    /**
+     * 发送验证码
+     * @param mobile 手机号
+     * @return R
+     */
+    R<Boolean> sendSmsCode(String mobile);
+
+    /**
+     * 通过openId查询用户
+     * @param openId openId
+     * @return 用户信息
+     */
+    SysUserVO findUserByOpenId(String openId);
+
+    /**
+     * 通过ID查询用户信息
+     * @param id 用户ID
+     * @return 用户信息
+     */
+    SysUserVO selectUserVoById(Integer id);
+
+    /**
+     * 分页查询用户信息（含有角色信息）
      * @param sysUserQuery
      * @return
      */

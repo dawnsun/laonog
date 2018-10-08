@@ -27,6 +27,10 @@
         </dependency>
     </dependencies>
 
+    <modules>
+        <module>laonog-admin-service</module>
+    </modules>
+
     <build>
         <plugins>
             <plugin>

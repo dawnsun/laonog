@@ -13,7 +13,7 @@ public interface SysUserMapper {
      * @param sysUserDO
      * @return
      */
-    Integer insertSysUser(SysUser sysUserDO);
+    Long insertSysUser(SysUser sysUserDO);
 
     /**
      * 删除

@@ -64,7 +64,7 @@ public class SysUserConverter {
                 return sysUserVO;
     }
 
-    public static List<SysUserVO> convertDOs2VOs(List<SysUserDO> sysUserDOList){
+    public static List<SysUserVO> convertDOs2VOs(List<SysUser> sysUserDOList){
         if (null == sysUserDOList){
             return null;
         }
