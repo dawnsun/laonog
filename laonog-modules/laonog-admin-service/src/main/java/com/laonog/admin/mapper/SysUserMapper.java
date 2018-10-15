@@ -1,6 +1,6 @@
 package com.laonog.admin.mapper;
 
-import com.laonog.admin.model.entity.SysUser;
+import com.laonog.admin.model.entity.SysUserDO;
 import com.laonog.admin.model.query.SysUserQuery;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -10,31 +10,31 @@ import java.util.List;
 public interface SysUserMapper {
     /**
      * 新增
-     * @param sysUserDO
+     * @param sysUserDODO
      * @return
      */
-    Long insertSysUser(SysUser sysUserDO);
+    Long insertSysUser(SysUserDO sysUserDODO);
 
     /**
      * 删除
-     * @param sysUserDO
+     * @param sysUserDODO
      * @return
      */
-    Integer deleteSysUser(SysUser sysUserDO);
+    Integer deleteSysUser(SysUserDO sysUserDODO);
 
     /**
      * 修改
-     * @param sysUserDO
+     * @param sysUserDODO
      * @return
      */
-    Integer updateSysUser(SysUser sysUserDO);
+    Integer updateSysUser(SysUserDO sysUserDODO);
 
     /**
      * 查询单个
      * @param sysUserQuery
      * @return
      */
-    SysUser getSysUser(SysUserQuery sysUserQuery);
+    SysUserDO getSysUser(SysUserQuery sysUserQuery);
 
     /**
      * 查询数量
@@ -48,12 +48,12 @@ public interface SysUserMapper {
      * @param sysUserQuery
      * @return
      */
-    List<SysUser> getSysUserList(SysUserQuery sysUserQuery);
+    List<SysUserDO> getSysUserList(SysUserQuery sysUserQuery);
 
     /**
      * 查询分页
      * @param sysUserQuery
      * @return
      */
-    List<SysUser> getSysUserPage(SysUserQuery sysUserQuery);
+    List<SysUserDO> getSysUserPage(SysUserQuery sysUserQuery);
 }

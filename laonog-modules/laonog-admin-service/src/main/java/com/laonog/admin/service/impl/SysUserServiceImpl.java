@@ -5,7 +5,7 @@ import com.laonog.admin.converter.SysUserConverter;
 import com.laonog.admin.mapper.SysUserMapper;
 import com.laonog.admin.model.dto.UserDTO;
 import com.laonog.admin.model.dto.UserInfo;
-import com.laonog.admin.model.entity.SysUser;
+import com.laonog.admin.model.entity.SysUserDO;
 import com.laonog.admin.model.query.SysUserQuery;
 import com.laonog.admin.service.SysUserService;
 import com.laonog.common.enums.ErrorCodeEnum;
@@ -42,8 +42,8 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public Boolean insertSysUser(SysUserVO sysUserVO){
         try{
-            SysUser sysUser = SysUserConverter.convertVO2DO(sysUserVO);
-            Long id = sysUserDAO.insertSysUser(sysUser);
+            SysUserDO sysUserDO = SysUserConverter.convertVO2DO(sysUserVO);
+            Long id = sysUserDAO.insertSysUser(sysUserDO);
             if(id>0){
                 return true;
             }else{
@@ -71,7 +71,7 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
-    public Boolean deleteUserById(SysUser sysUser) {
+    public Boolean deleteUserById(Long id) {
         return null;
     }
 
@@ -115,8 +115,8 @@ public class SysUserServiceImpl implements SysUserService {
         try{
             List<SysUserVO> sysUserVOList = new ArrayList<>();
             Long count = sysUserDAO.getSysUserCount(sysUserQuery);
-            List<SysUser> sysUserList = sysUserDAO.getSysUserPage(sysUserQuery);
-            sysUserVOList = SysUserConverter.convertDOs2VOs(sysUserList);
+            List<SysUserDO> sysUserDOList = sysUserDAO.getSysUserPage(sysUserQuery);
+            sysUserVOList = SysUserConverter.convertDOs2VOs(sysUserDOList);
             return new TableResultResponse<>(SuccessCodeEnum.QUERY_PAGE_SUCCESS.getSuccessMessage(),sysUserQuery.getPageNo(), sysUserQuery.getPageSize(), count, sysUserVOList);
         } catch (Exception e) {
             logger.error("SysUserService getSysUserPage " + e);

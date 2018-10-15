@@ -17,7 +17,7 @@
 
 package com.laonog.admin.model.dto;
 
-import com.laonog.admin.model.entity.SysUser;
+import com.laonog.admin.model.entity.SysUserDO;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -30,7 +30,7 @@ public class UserInfo implements Serializable {
     /**
      * 用户基本信息
      */
-    private SysUser sysUserDO;
+    private SysUserDO sysUserDO;
     /**
      * 权限标识集合
      */

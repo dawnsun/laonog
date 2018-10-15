@@ -16,7 +16,7 @@ public class SysUserVO implements Serializable {
     /**
      * 主键ID
      */
-    private Integer userId;
+    private Long id;
     /**
      * 用户名
      */
@@ -49,6 +49,33 @@ public class SysUserVO implements Serializable {
      * 头像
      */
     private String avatar;
+
+    //手机号码
+    private String phoneNumber;
+
+    //地址
+    private String address;
+
+    //昵称
+    private String nickname;
+
+    //二维码名片
+    private String qrCode;
+
+    //0-女 1-男
+    private Integer sex;
+
+    //生日
+    private String birthday;
+
+    //用户状态 0-正常 1-锁定
+    private Integer userStatus;
+
+    //0-有效 1-删除
+    private Integer isDelete;
+
+    //创建时间
+    private Date gmtCreate;
 
     /**
      * 部门ID

@@ -3,13 +3,11 @@ package com.laonog.admin.service;
 
 import com.laonog.admin.model.dto.UserDTO;
 import com.laonog.admin.model.dto.UserInfo;
-import com.laonog.admin.model.entity.SysUser;
+import com.laonog.admin.model.entity.SysUserDO;
 import com.laonog.admin.model.query.SysUserQuery;
 import com.laonog.common.response.TableResultResponse;
 import com.laonog.common.util.R;
 import com.laonog.common.vo.SysUserVO;
-
-import java.util.List;
 
 /**
  * 
@@ -51,10 +49,10 @@ public interface SysUserService {
 
     /**
      * 删除用户
-     * @param sysUser 用户
+     * @param id 用户主键
      * @return boolean
      */
-    Boolean deleteUserById(SysUser sysUser);
+    Boolean deleteUserById(Long id);
 
     /**
      * 更新当前用户基本信息
