@@ -1,11 +1,11 @@
 package com.laonog.admin.service.impl;
 
-
 import com.laonog.admin.converter.SysUserConverter;
 import com.laonog.admin.mapper.SysUserMapper;
 import com.laonog.admin.model.dto.UserDTO;
 import com.laonog.admin.model.dto.UserInfo;
 import com.laonog.admin.model.entity.SysUserDO;
+import com.laonog.admin.model.entity.SysUserRoleDO;
 import com.laonog.admin.model.query.SysUserQuery;
 import com.laonog.admin.service.SysUserService;
 import com.laonog.common.enums.ErrorCodeEnum;
@@ -15,6 +15,7 @@ import com.laonog.common.util.R;
 import com.laonog.common.vo.SysUserVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -36,15 +37,22 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 新增
-     * @param sysUserVO
+     * @param userDTO
      * @return
      */
     @Override
-    public Boolean insertSysUser(SysUserVO sysUserVO){
+    public Boolean insertSysUser(UserDTO userDTO){
         try{
-            SysUserDO sysUserDO = SysUserConverter.convertVO2DO(sysUserVO);
+            SysUserDO sysUserDO = new SysUserDO();
+            BeanUtils.copyProperties(userDTO, sysUserDO);
             Long id = sysUserDAO.insertSysUser(sysUserDO);
             if(id>0){
+                /*userDTO.getRole().forEach(roleId -> {
+                    SysUserRoleDO userRole = new SysUserRoleDO();
+                    userRole.setUserId(sysUserDO.getId());
+                    userRole.setRoleId(roleId);
+                    userRole.insert();
+                });*/
                 return true;
             }else{
                 return false;
@@ -101,7 +109,7 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
-    public SysUserVO selectUserVoById(Integer id) {
+    public SysUserVO selectUserVoById(Long id) {
         return null;
     }
 

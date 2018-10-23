@@ -1,5 +1,6 @@
 package com.laonog.admin.model.dto;
 
+import com.laonog.admin.model.entity.SysUserDO;
 import lombok.Data;
 
 import java.util.List;

@@ -16,14 +16,14 @@ import java.util.List;
 
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
-    private Integer userId;
+    private Long userId;
     private String username;
     private String password;
     private String status;
     private List<SysRole> roleList;
 
     public UserDetailsImpl(SysUserVO userVo) {
-        this.userId = userVo.getUserId();
+        this.userId = userVo.getId();
         this.username = userVo.getUsername();
         this.password = userVo.getPassword();
         this.status = userVo.getDelFlag();
@@ -90,7 +90,7 @@ public class UserDetailsImpl implements UserDetails {
         return status;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 

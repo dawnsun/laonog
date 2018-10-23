@@ -24,14 +24,14 @@ public class MenuTree extends TreeNode {
     public MenuTree() {
     }
 
-    public MenuTree(int id, String name, int parentId) {
+    public MenuTree(long id, String name, long parentId) {
         this.id = id;
         this.parentId = parentId;
         this.name = name;
         this.label = name;
     }
 
-    public MenuTree(int id, String name, MenuTree parent) {
+    public MenuTree(long id, String name, MenuTree parent) {
         this.id = id;
         this.parentId = parent.getId();
         this.name = name;

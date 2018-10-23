@@ -1,9 +1,11 @@
 package com.laonog.admin.common.util;
 
 
-import com.github.pig.admin.model.dto.MenuTree;
-import com.github.pig.admin.model.dto.TreeNode;
-import com.github.pig.admin.model.entity.SysMenu;
+
+
+import com.laonog.admin.model.dto.MenuTree;
+import com.laonog.admin.model.dto.TreeNode;
+import com.laonog.admin.model.entity.SysMenuDO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,12 +80,12 @@ public class TreeUtil {
      * @param root
      * @return
      */
-    public static List<MenuTree> bulidTree(List<SysMenu> menus, int root) {
+    public static List<MenuTree> bulidTree(List<SysMenuDO> menus, int root) {
         List<MenuTree> trees = new ArrayList<MenuTree>();
         MenuTree node;
-        for (SysMenu menu : menus) {
+        for (SysMenuDO menu : menus) {
             node = new MenuTree();
-            node.setId(menu.getMenuId());
+            node.setId(menu.getId());
             node.setParentId(menu.getParentId());
             node.setName(menu.getName());
             node.setUrl(menu.getUrl());

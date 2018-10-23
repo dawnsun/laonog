@@ -33,13 +33,13 @@ public class SysUserDO implements Serializable {
     private String qrCode;
 
     //0-女 1-男
-    private Integer sex;
+    private String sex;
 
     //生日
     private String birthday;
 
     //用户状态 0-正常 1-锁定
-    private Integer userStatus;
+    private String userStatus;
 
     //创建时间
     private Date gmtCreate;
@@ -54,6 +54,6 @@ public class SysUserDO implements Serializable {
     private String modifier;
 
     //0-有效 1-删除
-    private Integer isDelete;
+    private String isDelete;
 
 }

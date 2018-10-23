@@ -22,6 +22,7 @@ public interface CommonConstant {
      * 删除
      */
     String STATUS_DEL = "1";
+
     /**
      * 正常
      */

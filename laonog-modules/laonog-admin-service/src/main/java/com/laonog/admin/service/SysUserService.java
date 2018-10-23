@@ -20,10 +20,10 @@ public interface SysUserService {
 
     /**
      * 新增
-     * @param sysUserVO
+     * @param UserDTO
      * @return
      */
-    Boolean insertSysUser(SysUserVO sysUserVO);
+    Boolean insertSysUser(UserDTO UserDTO);
 
     /**
      * 根据用户名查询用户角色信息
@@ -96,7 +96,7 @@ public interface SysUserService {
      * @param id 用户ID
      * @return 用户信息
      */
-    SysUserVO selectUserVoById(Integer id);
+    SysUserVO selectUserVoById(Long id);
 
     /**
      * 分页查询用户信息（含有角色信息）

@@ -1,25 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~    Copyright (c) 2018-2025, lengleng All rights reserved.
-  ~
-  ~ Redistribution and use in source and binary forms, with or without
-  ~ modification, are permitted provided that the following conditions are met:
-  ~
-  ~ Redistributions of source code must retain the above copyright notice,
-  ~ this list of conditions and the following disclaimer.
-  ~ Redistributions in binary form must reproduce the above copyright
-  ~ notice, this list of conditions and the following disclaimer in the
-  ~ documentation and/or other materials provided with the distribution.
-  ~ Neither the name of the pig4cloud.com developer nor the names of its
-  ~ contributors may be used to endorse or promote products derived from
-  ~ this software without specific prior written permission.
-  ~ Author: lengleng (wangiegie@gmail.com)
-  -->
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.github.pig.admin.mapper.SysUserMapper">
+<mapper namespace="com.laonog.admin.mapper.SysUserMapper">
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.github.pig.admin.model.entity.SysUser">
+    <resultMap id="BaseResultMap" type="com.laonog.admin.model.entity.SysUserDO">
         <id column="user_id" property="userId"/>
         <result column="username" property="username"/>
         <result column="password" property="password"/>
@@ -33,7 +17,7 @@
     </resultMap>
 
     <!-- userVo结果集 -->
-    <resultMap id="userVoResultMap" type="com.github.pig.common.vo.UserVO">
+    <resultMap id="userVoResultMap" type="com.laonog.common.vo.SysUserVO">
         <id column="user_id" property="userId"/>
         <result column="username" property="username"/>
         <result column="password" property="password"/>
