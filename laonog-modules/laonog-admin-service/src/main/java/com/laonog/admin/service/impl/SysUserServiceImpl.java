@@ -8,6 +8,7 @@ import com.laonog.admin.model.entity.SysUserDO;
 import com.laonog.admin.model.entity.SysUserRoleDO;
 import com.laonog.admin.model.query.SysUserQuery;
 import com.laonog.admin.service.SysUserService;
+import com.laonog.common.constant.SecurityConstants;
 import com.laonog.common.enums.ErrorCodeEnum;
 import com.laonog.common.enums.SuccessCodeEnum;
 import com.laonog.common.response.TableResultResponse;
@@ -16,11 +17,14 @@ import com.laonog.common.vo.SysUserVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 
@@ -34,7 +38,8 @@ public class SysUserServiceImpl implements SysUserService {
     private Logger logger = LoggerFactory.getLogger(getClass());
     @Resource
     private SysUserMapper sysUserDAO;
-
+    @Autowired
+    private RedisTemplate redisTemplate;
     /**
      * 新增
      * @param userDTO
@@ -75,7 +80,7 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public void saveImageCode(String randomStr, String imageCode) {
-
+        redisTemplate.opsForValue().set(SecurityConstants.DEFAULT_CODE_KEY + randomStr, imageCode, SecurityConstants.DEFAULT_IMAGE_EXPIRE, TimeUnit.SECONDS);
     }
 
     @Override
