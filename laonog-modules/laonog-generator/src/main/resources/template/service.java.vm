@@ -1,0 +1,58 @@
+package ${package}.biz.service.${pathName};
+
+import ${package}common.msg.TableResultResponse;
+import ${package}.dal.query.${pathName}.${className}Query;
+import ${package}.biz.vos.${pathName}.${className}VO;
+import java.util.List;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+public interface ${className}Service {
+
+    /**
+     * 新增${comments}
+     * @param ${classname}VO
+     * @return
+     */
+    Boolean insert${className}(${className}VO ${classname}VO);
+
+    /**
+     * 删除${comments}
+     * @param ${classname}VO
+     * @return
+     */
+    Boolean delete${className}(${className}VO ${classname}VO);
+
+    /**
+     * 修改${comments}
+     * @param ${classname}VO
+     * @return
+     */
+    Boolean update${className}(${className}VO ${classname}VO);
+
+    /**
+     * 查询单个${comments}
+     * @param ${classname}Query
+     * @return
+     */
+    ${className}VO get${className}(${className}Query ${classname}Query);
+
+    /**
+     * 查询列表${comments}
+     * @param ${classname}Query
+     * @return
+     */
+    List<${className}VO> get${className}List(${className}Query ${classname}Query);
+
+    /**
+     * 查询分页${comments}
+     * @param ${classname}Query
+     * @return
+     */
+    TableResultResponse<${className}VO> get${className}Page(${className}Query ${classname}Query);
+}
