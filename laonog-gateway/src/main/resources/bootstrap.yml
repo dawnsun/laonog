@@ -1,48 +1,27 @@
+server:
+  port: 9999
+
 spring:
   application:
-    name: laonong-gateway
-  profiles:
-    active: dev
+    name: laonog-gateway
+  # 配置中心
   cloud:
     config:
       fail-fast: true
-      discovery:
-        service-id: laonog-config-server
-        enabled: true
+      name: ${spring.application.name}
       profile: ${spring.profiles.active}
-      label: master
+      discovery:
+        enabled: true
+        service-id: laonog-config
+  profiles:
+    active: dev
 
-logging:
-  level:
-    root: error
-
----
-spring:
-  profiles: dev
-eureka:
-  instance:
-    prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 5
-    lease-expiration-duration-in-seconds: 20
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8081/eureka
-    registry-fetch-interval-seconds: 10
-#认证服务器地址
-security:
-  auth:
-    server: http://localhost:3000
----
-spring:
-  profiles: prd
+# 注册中心
 eureka:
   instance:
     prefer-ip-address: true
   client:
-    serviceUrl:
-      defaultZone: http://eureka:8081/eureka
+    service-url:
+      defaultZone: http://laonog:laonogeur@laonog-eureka:8081/eureka/
 
-#建议使用ng负载均衡
-security:
-  auth:
-    server: http://localhost:3000
+

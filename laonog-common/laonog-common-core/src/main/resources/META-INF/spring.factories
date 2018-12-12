@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.laonog.common.core.config.JacksonConfig,\
+  com.laonog.common.core.config.RedisConfig,\
+  com.laonog.common.core.config.RestTemplateConfig,\
+  com.laonog.common.core.exception.GlobalExceptionHandler,\
+  com.laonog.common.core.util.SpringContextHolder

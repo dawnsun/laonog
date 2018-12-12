@@ -1,107 +1,86 @@
 package com.laonog.admin.service;
 
-
-import com.laonog.admin.model.dto.UserDTO;
-import com.laonog.admin.model.dto.UserInfo;
-import com.laonog.admin.model.entity.SysUserDO;
-import com.laonog.admin.model.query.SysUserQuery;
-import com.laonog.common.response.TableResultResponse;
-import com.laonog.common.util.R;
-import com.laonog.common.vo.SysUserVO;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.service.IService;
+import com.laonog.admin.facede.dto.UserDTO;
+import com.laonog.admin.facede.dto.UserInfo;
+import com.laonog.admin.facede.entity.SysUser;
+import com.laonog.admin.facede.vo.UserVO;
+import com.laonog.common.core.util.Query;
+import com.laonog.common.core.util.R;
 
 /**
- * 
- *
- * @author sunchenguang
- * @email scg16@126.com
- * @date 2018-07-09 18:45:59
+ * SysUserService
  */
-public interface SysUserService {
+public interface SysUserService extends IService<SysUser> {
+	/**
+	 * 查询用户信息
+	 *
+	 * @param type     类型
+	 * @param username 用户名
+	 * @return userInfo
+	 */
+	UserInfo findUserInfo(String type, String username);
 
-    /**
-     * 新增
-     * @param UserDTO
-     * @return
-     */
-    Boolean insertSysUser(UserDTO UserDTO);
+	/**
+	 * 分页查询用户信息（含有角色信息）
+	 *
+	 * @param query 查询条件
+	 * @return
+	 */
+	Page selectWithRolePage(Query query);
 
-    /**
-     * 根据用户名查询用户角色信息
-     *
-     * @param username 用户名
-     * @return userVo
-     */
-    SysUserVO findUserByUsername(String username);
 
-    /**
-     * 查询用户信息
-     *
-     * @param userVo 角色名
-     * @return userInfo
-     */
-    UserInfo findUserInfo(SysUserVO userVo);
+	/**
+	 * 删除用户
+	 *
+	 * @param sysUser 用户
+	 * @return boolean
+	 */
+	Boolean deleteUserById(SysUser sysUser);
 
-    /**
-     * 保存验证码
-     *  @param randomStr 随机串
-     * @param imageCode 验证码*/
-    void saveImageCode(String randomStr, String imageCode);
+	/**
+	 * 更新当前用户基本信息
+	 *
+	 * @param userDto  用户信息
+	 * @param username 用户名
+	 * @return Boolean
+	 */
+	R<Boolean> updateUserInfo(UserDTO userDto, String username);
 
-    /**
-     * 删除用户
-     * @param id 用户主键
-     * @return boolean
-     */
-    Boolean deleteUserById(Long id);
+	/**
+	 * 更新指定用户信息
+	 *
+	 * @param userDto  用户信息
+	 * @param username 用户信息
+	 * @return
+	 */
+	Boolean updateUser(UserDTO userDto, String username);
 
-    /**
-     * 更新当前用户基本信息
-     * @param userDto 用户信息
-     * @param username 用户名
-     * @return Boolean
-     */
-    R<Boolean> updateUserInfo(UserDTO userDto, String username);
+	/**
+	 * 通过ID查询用户信息
+	 *
+	 * @param id 用户ID
+	 * @return 用户信息
+	 */
+	UserVO selectUserVoById(Integer id);
 
-    /**
-     * 更新指定用户信息
-     * @param userDto 用户信息
-     * @param username 用户信息
-     * @return
-     */
-    Boolean updateUser(UserDTO userDto, String username);
+	/**
+	 * 通过用户名查找已经删除的用户
+	 *
+	 * @param username 用户名
+	 * @return
+	 */
+	SysUser selectDeletedUserByUsername(String username);
 
-    /**
-     * 通过手机号查询用户信息
-     * @param mobile 手机号
-     * @return 用户信息
-     */
-    SysUserVO findUserByMobile(String mobile);
+	/**
+	 * 根据用户名删除用户（真实删除）
+	 *
+	 * @param username username
+	 * @param userId   userId
+	 * @return
+	 */
+	Boolean deleteSysUserByUsernameAndUserId(String username, Integer userId);
 
-    /**
-     * 发送验证码
-     * @param mobile 手机号
-     * @return R
-     */
-    R<Boolean> sendSmsCode(String mobile);
 
-    /**
-     * 通过openId查询用户
-     * @param openId openId
-     * @return 用户信息
-     */
-    SysUserVO findUserByOpenId(String openId);
-
-    /**
-     * 通过ID查询用户信息
-     * @param id 用户ID
-     * @return 用户信息
-     */
-    SysUserVO selectUserVoById(Long id);
-
-    /**
-     * 分页查询用户信息（含有角色信息）
-     * @param sysUserQuery
-     * @return
-     */
-    TableResultResponse<SysUserVO> getSysUserPage(SysUserQuery sysUserQuery);
 }

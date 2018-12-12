@@ -1,0 +1,9 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.laonog.common.security.component.PermissionService,\
+  com.laonog.common.security.component.PigAccessDeniedHandler,\
+  com.laonog.common.security.component.ResourceAuthExceptionEntryPoint,\
+  com.laonog.common.security.component.PigxResourceServerTokenRelayAutoConfiguration,\
+  com.laonog.common.security.feign.PigxFeignClientConfiguration,\
+  com.laonog.common.security.service.PigxUserDetailsServiceImpl,\
+  com.laonog.common.security.social.QqSocialConfig,\
+  com.laonog.common.security.social.WxSocialConfig

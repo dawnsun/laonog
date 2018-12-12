@@ -6,7 +6,7 @@
 
     <groupId>com.laonog</groupId>
     <artifactId>laonog-modules</artifactId>
-    <version>${laonog.version}</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
 
     <parent>
@@ -17,6 +17,7 @@
 
 
     <modules>
+        <module>laonog-admin-facede</module>
         <module>laonog-admin-service</module>
     </modules>
 

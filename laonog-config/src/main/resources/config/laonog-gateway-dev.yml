@@ -1,0 +1,58 @@
+spring:
+  cloud:
+    gateway:
+      locator:
+        enabled: true
+      routes:
+      # 认证中心
+      - id: laonog-auth
+        uri: lb://laonog-auth
+        predicates:
+        - Path=/auth/**
+        filters:
+          # 验证码处理
+        - ValidateCodeGatewayFilter
+          # 前端密码解密
+        - PasswordDecoderFilter
+      #ADMIN 模块
+      - id: laonog-admin
+        uri: lb://laonog-admin
+        predicates:
+        - Path=/admin/**
+        filters:
+          # 限流配置
+        - name: RequestRateLimiter
+          args:
+            key-resolver: '#{@remoteAddrKeyResolver}'
+            redis-rate-limiter.replenishRate: 10
+            redis-rate-limiter.burstCapacity: 20
+          # 降级配置
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: 'forward:/fallback'
+      # 代码生成模块
+      - id: laonog-codegen
+        uri: lb://laonog-codegen
+        predicates:
+        - Path=/gen/**
+      # 定时任务模块
+      - id: laonog-daemon
+        uri: lb://laonog-daemon
+        predicates:
+        - Path=/daemon/**
+      # 分布式事务管理模块
+      - id: laonog-tx-manager
+        uri: lb://laonog-tx-manager
+        predicates:
+        - Path=/tx/**
+
+security:
+  encode:
+    # 前端密码密钥，必须16位
+    key: 'pigxpigxpigxpigx'
+
+# 不校验验证码终端
+ignore:
+  clients:
+    - test

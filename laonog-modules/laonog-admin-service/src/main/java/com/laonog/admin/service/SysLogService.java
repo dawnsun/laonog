@@ -1,35 +1,31 @@
 package com.laonog.admin.service;
 
-import com.laonog.common.entity.SysLog;
-import com.laonog.common.response.TableResultResponse;
+import com.baomidou.mybatisplus.service.IService;
+import com.laonog.admin.facede.entity.SysLog;
+import com.laonog.admin.facede.vo.PreLogVo;
 
-public interface SysLogService {
-    /**
-     * 新增
-     * @param sysLog
-     * @return
-     */
-    Boolean insertSysLog(SysLog sysLog);
+import java.util.List;
 
-    /**
-     * 删除
-     * @param sysLog
-     * @return
-     */
-    Boolean deleteSysLog(SysLog sysLog);
+/**
+ *
+ * 日志表 服务类
+ *
+ */
+public interface SysLogService extends IService<SysLog> {
 
-    /**
-     * 修改
-     * @param sysLog
-     * @return
-     */
-    Boolean updateSysLog(SysLog sysLog);
+	/**
+	 * 通过ID删除日志（逻辑删除）
+	 *
+	 * @param id 日志ID
+	 * @return true/false
+	 */
+	Boolean updateByLogId(Long id);
 
-
-    /**
-     * 查询分页
-     * @param sysLog
-     * @return
-     */
-    TableResultResponse<SysLog> getSysLogPage(SysLog sysLog);
+	/**
+	 * 批量插入前端错误日志
+	 *
+	 * @param preLogVoList 日志信息
+	 * @return true/false
+	 */
+	Boolean insertLogs(List<PreLogVo> preLogVoList);
 }

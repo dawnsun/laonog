@@ -18,54 +18,56 @@
 	</parent>
 
 	<dependencies>
-
-		<dependency>
-			<groupId>com.laonog</groupId>
-			<artifactId>laonog-common</artifactId>
-			<version>${laonog.version}</version>
-		</dependency>
-		<!--zuul网关-->
+		<!--gateway 网关依赖,内置webflux 依赖-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
 		</dependency>
-		<!-- zuul限流 -->
-		<dependency>
-			<groupId>com.marcosbarbero.cloud</groupId>
-			<artifactId>spring-cloud-zuul-ratelimit</artifactId>
-			<version>2.1.0.RELEASE</version>
-		</dependency>
-		<!--feign-->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-		</dependency>
-		<!--oauth2.0-->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-oauth2</artifactId>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<artifactId>spring-boot-starter-data-redis-reactive</artifactId>
 		</dependency>
-
+		<!--配置中心客户端-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<!--验证码-->
+		<dependency>
+			<groupId>com.github.axet</groupId>
+			<artifactId>kaptcha</artifactId>
+			<version>${kaptcha.version}</version>
+		</dependency>
+		<!--hutool-->
+		<dependency>
+			<groupId>com.laonog</groupId>
+			<artifactId>laonog-common-core</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<!--接口文档-->
+		<!--<dependency>-->
+			<!--<groupId>io.springfox</groupId>-->
+			<!--<artifactId>springfox-swagger-ui</artifactId>-->
+			<!--<version>${swagger.version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>io.springfox</groupId>-->
+			<!--<artifactId>springfox-swagger2</artifactId>-->
+			<!--<version>${swagger.version}</version>-->
+		<!--</dependency>-->
 	</dependencies>
-
-
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<finalName>${project.name}</finalName>
-				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>

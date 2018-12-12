@@ -1,0 +1,6 @@
+spring:
+  # 安全配置
+  security:
+    user:
+      name: ENC(rZHA4LW5hHmhLAAzJoFNag==)     # laonog
+      password: ENC(bjeyh+Aeii3kHXkoo00ZUw==) # laonog

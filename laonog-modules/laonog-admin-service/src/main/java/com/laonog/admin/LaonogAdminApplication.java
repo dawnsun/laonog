@@ -1,16 +1,15 @@
 package com.laonog.admin;
 
+import com.laonog.common.security.feign.EnablePigxFeignClients;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.scheduling.annotation.EnableAsync;
 
-
-@EnableAsync
+/**
+ *
+ * 用户统一管理系统
+ */
 @SpringCloudApplication
-@ComponentScan(basePackages = {"com.laonog.admin", "com.laonog.common.bean"})
+@EnablePigxFeignClients
 public class LaonogAdminApplication {
     public static void main(String[] args) {
         SpringApplication.run(LaonogAdminApplication.class, args);

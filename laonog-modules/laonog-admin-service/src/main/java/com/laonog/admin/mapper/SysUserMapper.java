@@ -1,59 +1,61 @@
 package com.laonog.admin.mapper;
 
-import com.laonog.admin.model.entity.SysUserDO;
-import com.laonog.admin.model.query.SysUserQuery;
-import org.apache.ibatis.annotations.Mapper;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.laonog.admin.facede.entity.SysUser;
+import com.laonog.admin.facede.vo.UserVO;
+import com.laonog.common.core.datascope.DataScope;
+import com.laonog.common.core.util.Query;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Mapper
-public interface SysUserMapper {
-    /**
-     * 新增
-     * @param sysUserDODO
-     * @return
-     */
-    Long insertSysUser(SysUserDO sysUserDODO);
+/**
+ *
+ * 用户表 Mapper 接口
+ *
+ */
+public interface SysUserMapper extends BaseMapper<SysUser> {
+	/**
+	 * 通过用户名查询用户信息（含有角色信息）
+	 *
+	 * @param username 用户名
+	 * @return userVo
+	 */
+	UserVO selectUserVoByUsername(String username);
 
-    /**
-     * 删除
-     * @param sysUserDODO
-     * @return
-     */
-    Integer deleteSysUser(SysUserDO sysUserDODO);
+	/**
+	 * 分页查询用户信息（含角色）
+	 *
+	 * @param query     查询条件
+	 * @param username  用户名
+	 * @param dataScope
+	 * @return list
+	 */
+	List selectUserVoPage(Query query, @Param("username") Object username, DataScope dataScope);
 
-    /**
-     * 修改
-     * @param sysUserDODO
-     * @return
-     */
-    Integer updateSysUser(SysUserDO sysUserDODO);
+	/**
+	 * 通过ID查询用户信息
+	 *
+	 * @param id 用户ID
+	 * @return userVo
+	 */
+	UserVO selectUserVoById(Integer id);
 
-    /**
-     * 查询单个
-     * @param sysUserQuery
-     * @return
-     */
-    SysUserDO getSysUser(SysUserQuery sysUserQuery);
+	/**
+	 * 通过用户名查找已经删除的用户
+	 *
+	 * @param username 用户名
+	 * @return 用户对象
+	 */
+	SysUser selectDeletedUserByUsername(@Param("username") String username);
 
-    /**
-     * 查询数量
-     * @param sysUserQuery
-     * @return
-     */
-    Long getSysUserCount(SysUserQuery sysUserQuery);
+	/**
+	 * 根据用户名删除用户（真实删除）
+	 *
+	 * @param username username
+	 * @param userId   userId
+	 * @return
+	 */
+	Boolean deleteSysUserByUsernameAndUserId(@Param("username") String username, @Param("userId") Integer userId);
 
-    /**
-     * 查询列表
-     * @param sysUserQuery
-     * @return
-     */
-    List<SysUserDO> getSysUserList(SysUserQuery sysUserQuery);
-
-    /**
-     * 查询分页
-     * @param sysUserQuery
-     * @return
-     */
-    List<SysUserDO> getSysUserPage(SysUserQuery sysUserQuery);
 }
